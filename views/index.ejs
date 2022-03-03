@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs") %>
+
+  <form id="contact-form">
+   
+    <input type="text" id="name" name="name" placeholder="Your Name..." required>
+    <input type="email" id="email" name="email" placeholder="Email Address..." required>
+    <textarea name="message" id="message" placeholder="Your Message..." required></textarea>
+  
+    <div class="g-recaptcha" data-sitekey="6Lfo6igcAAAAAAby4cdC2pkACLbyS__Pj7yekceS" data-theme="light"></div>
+    
+    <button type="submit">SEND</button>
+    
+    <div class="output-message">
+      <p id="success-message"></p>
+    </div>
+
+  </form>
+
+  <script src="/js/script.js"></script>
+
+<%- include("partials/header.ejs") %>
