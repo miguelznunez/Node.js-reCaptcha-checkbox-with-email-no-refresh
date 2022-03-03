@@ -28,7 +28,7 @@ app.post("/submitForm", (req, res) => {
     req.body.captcha === "" ||
     req.body.captcha === null
   ){
-    return res.json({ success : false, msg: "Please select captcha"});
+    return res.json({success:false, msg:"Please select captcha"});
   }
 
   // Secret Key
@@ -43,14 +43,14 @@ app.post("/submitForm", (req, res) => {
 
     // If not succesfull
     if(body.success !== undefined && !body.success){
-      return res.json({"success":false, "msg":"Failed captcha verification"});
+      res.json({success:false, msg:"Failed captcha verification"});
     }
 
     const { email, name, message } = req.body;
 
     sendMail(email, name, message, function(err, data) {
-      if (err) res.status(500).json({ message: "Internal Error" });
-      else return res.json({"success":true, "msg":"Success"});
+      if (err) res.json({success:false, msg:"Internal error"});
+      else res.json({success:true, msg:"Success"});
     }); 
   })  
 });
